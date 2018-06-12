@@ -1,0 +1,205 @@
+<? include('dbConfig.php'); ?>
+<html lang="en">
+<head>
+	<title>Contact Us</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/logo.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+
+	 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+</head>
+<body>
+	<img src="./images/icons/logo.png" alt="Coding Club Logo" height="200" width="270" style="margin:0px auto;display:block"><!--Logo should link back to home screen-->
+	<div style="font-family: 'Roboto Slab',serif;font-size: 20px">
+
+		<span class="contact100-page-title">
+					<h1 style="font-weight: 900;">Contact Us</h1>
+				</span>
+
+		<span class="contact100-page-text">
+				<h2>We're happy to help</h2>
+		</span>
+
+	</div>
+
+
+	<div style="text-align: center;padding-bottom: 250px;">
+		<h2>Contact Details:</h2>
+		<div class="Division" style="text-align: center;padding-left: 150px;padding-top: 50px;">
+			<h3>Coding Club President</br>Saket Ringsia</h3>
+
+		<ul>
+			<li>Phone Number: 91 97711 79771</li>
+			<li>Email ID: saketringsia.cs16@rvce.edu.in</li>
+		</ul>
+
+		</div>
+		<div class="Division" style="text-align: center;padding-left:60px;padding-right: 50px;padding-top: 50px;">
+			<h3>Coding Club Faculty Advisor</br>Dr. B M Sagar</h3>
+
+		<ul>
+			<li>Phone Number: 91 98863 32226</li>
+			<li>Email ID: sagarbm@rvce.edu.in</li>
+		</ul>
+
+		</div>
+	</div>
+
+	<div class="contact100-page-text" style="text-align: center;">
+		<h4>Address:</h4>
+		<p style="font-size: 16px">R V College of Engineering,</br>
+		R V Vidyanikethan Post,
+		Mysuru Road Bengaluru - 560 059</br>
+		Ph : 91 - 080-6717 8021
+		Fax: 91 - 080-6717 8011</br>
+		Email : principal@rvce.edu.in</br></p>
+	</div>
+
+
+
+	<div class="container-contact100">
+		<div class="contact100-map" id="google_map" data-map-x="12.9210179826" data-map-y="77.4931280275" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
+		<!--Note the position is absolute-->
+		<div class="contact100-more" style="position: relative;left: -140px;top:-50px;">
+			<i class="zmdi zmdi-phone-in-talk" ></i>
+			91 - 080-6717 8021
+		</div>
+
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="index123.php">
+				<span class="contact100-form-title">
+					Have a question?
+				</span>
+
+				<?php
+				if(isset($_POST['send']))
+				{
+					$sql="INSERT into users (Username,Email,Phone,Message)
+				VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["phone"]."','".$_POST["message"]."')";
+    					$result = mysql_query($sql,$contact);
+				}
+				?>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<span class="label-input100">Name</span>
+					<input class="input100" type="text" name="name" placeholder="Name...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<span class="label-input100">Email</span>
+					<input class="input100" type="text" name="email" placeholder="Email addess...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100">
+					<span class="label-input100">Phone</span>
+					<input class="input100" type="text" name="phone" placeholder="Phone Number...">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100">Message</span>
+					<textarea class="input100" name="message" placeholder="Questions/Comments..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							Send
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-23581568-13');
+	</script>
+	<br>
+	<br>
+	<br>
+	<div style="font-family: 'Roboto Slab',serif;font-size: 16px">
+
+		<span class="contact100-page-title">
+					<h1 style="font-weight: 900;">Connect With Us</h1>
+				</span>
+		<br>
+		<br>
+
+		<a href="https://www.facebook.com/codingclubrvce/" class="contact100-extra"><img src="./images/icons/Facebook.png" alt="Facebook Logo" height="50" width="50" style="margin:0px auto;display:block"></a>
+		<div class="wrap-input100 validate-input" style="text-align:center;">
+					<span > <a href="https://www.facebook.com/codingclubrvce/" class="contact100-extra">Coding Club RVCE</a></span>
+		</div>
+
+		<!--Just change both the href to linkedin link instead of Facebook-->
+
+		<a href="https://www.linkedin.com/company/coding-club-rvce/" class="contact100-extra"><img src="./images/icons/Linkedin.png" alt="LinkedIn Logo" height="50" width="50" style="margin:0px auto;display:block"></a>
+		<div class="wrap-input100 validate-input" style="text-align:center;">
+					<span > <a href="https://www.linkedin.com/company/coding-club-rvce/" class="contact100-extra">Coding Club RVCE LinkedIn</a></span>
+		</div>
+
+
+	</div>
+
+	</body>
+	</html>
